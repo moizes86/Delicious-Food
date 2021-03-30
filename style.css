@@ -10,7 +10,9 @@
 }
 
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
+  
 }
 
 a {
@@ -46,14 +48,18 @@ button {
   font-weight: bold;
 }
 
-
-
 .cool-btn:focus {
   outline: none;
 }
 
 .padding {
   padding: 7rem;
+}
+
+@media screen and (max-width: 800px) {
+  .padding {
+    padding: 0;
+  }
 }
 
 .padding-tb {
@@ -86,20 +92,21 @@ button {
   text-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
+.bg-text-container {
+  margin-top: -55px;
+  margin-bottom: -22px;
+  max-height: 100px;
+}
 .bg-text {
-  color: var(--bg-text-color);
-  font-size: 6rem;
+  opacity: 0.05;
+  font-size: 10vmin;
   text-transform: uppercase;
   text-align: center;
   display: block;
 }
 
-.bg-text-darker {
-  color: var(--bg-text-color-darker);
-}
-
 .negative-margin-bottom {
-  margin-bottom: -1.5em;
+  margin-bottom: -1.5rem;
   position: relative;
   z-index: 1;
 }
@@ -156,53 +163,10 @@ h1 {
   height: 16px;
 }
 
-/* ####################################################################### */
-/* #########################      NAV              ####################### */
-/* ####################################################################### */
-
-nav {
-  z-index: 1;
-  padding: 1rem;
-  transition: 0.2s;
-  background-color: rgba(255, 255, 255, 0);
-  position: absolute;
-  width: 100%;
-  left: 0;
-  padding-left: 7rem;
-  padding-right: 7rem;
-}
-
-.sticky {
-  position: fixed;
-  top: 0;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-nav li {
-  display: inline-block;
-  padding: 0 10px;
-}
-
-nav button {
-  padding: 15px 25px !important;
-  font-weight: bold;
-}
-
-nav div li {
-  font-size: 0.8rem;
-}
-
 /* #########################     HOME              ####################### */
 
 #home {
-  background-image: url("./img/hero_2.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5) 10%, rgba(0, 0, 0, 0.212)), url("./img/hero_2.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -302,17 +266,12 @@ nav div li {
 
 #special-dishes {
   position: relative;
-  height: 110vh;
 }
 
-#special-dishes .flex-container {
-  justify-content: flex-end;
-}
 
 #special-dishes .dish-item {
   position: relative;
   margin: 5px;
-  width: 30%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -373,42 +332,29 @@ nav div li {
 /* #####################             MENU           ###################### */
 /* ####################################################################### */
 
-#menu .menu-items {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  text-align: left;
-}
-
 #menu .menu-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
   margin-top: -5px;
 }
 
 #menu .menu-item h2 {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 100;
 }
 
-#menu img {
-  object-fit: contain;
-  width: 100%;
-}
-
-#menu .menu-item-details {
-  padding: 1rem 2rem;
-}
-
-#menu .menu-item-details p {
+#menu .menu-item p {
+  font-size: 0.8rem;
   color: var(--color2);
   line-height: 2rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+#menu img {
+  width: 100%;
 }
 
 #menu .menu-item-details span {
@@ -420,10 +366,9 @@ nav div li {
 /* #####################          TESTIMONIAL       ###################### */
 /* ####################################################################### */
 
-#testimonial .testimonial-item {
-  margin-right: 2rem;
+#testimonial{
+  overflow-x: hidden;
 }
-
 #testimonial .testimonial-bottom {
   display: flex;
   align-items: center;
@@ -438,33 +383,23 @@ nav div li {
 
 #testimonial .testimonial-bottom span {
   color: var(--color2);
-  line-height: 2;
 }
 
 /* ####################################################################### */
 /* #####################            BLOG            ###################### */
 /* ####################################################################### */
 
-#blog .flex-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
 #blog .blog-item {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr; */
 }
 
 #blog .blog-item-details {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  padding: 0 0.5rem;
 }
 
-#blog .blog-item-details * {
-  margin-top: auto;
-  margin-bottom: auto;
+#blog .blog-item-details h2 {
+  font-size: 100%;
 }
 
 #blog p {
@@ -473,6 +408,7 @@ nav div li {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 0.8rem;
 }
 
 #blog img {
@@ -486,11 +422,6 @@ nav div li {
 #subscribe-newsletter {
   padding-top: 3rem;
   padding-bottom: 3rem;
-}
-
-#subscribe-newsletter div {
-  width: 780px;
-  margin: auto;
 }
 
 #subscribe-newsletter h1 {
@@ -528,10 +459,7 @@ nav div li {
 
 footer {
   background-color: #262626;
-}
-
-footer > div {
-  justify-content: space-between;
+  max-width: 100vw;
 }
 
 footer h2 {
@@ -542,10 +470,6 @@ footer h2 {
 footer p,
 footer span {
   color: #939393;
-}
-
-.footer-flex-item {
-  flex-basis: 30%;
 }
 
 footer #hours-and-contact > div:first-of-type {
